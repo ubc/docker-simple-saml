@@ -1,0 +1,24 @@
+services:
+    saml-idp:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - '8080:80'
+            - '8443:443'
+        volumes:
+            - ./config/simplesamlphp:/var/www/simplesamlphp/config
+            - ./cert:/var/www/simplesamlphp/cert
+            - ./www:/var/www/simplesamlphp/www/custom
+            - simplesaml_metadata:/var/www/simplesamlphp/metadata
+            - ./log:/var/www/simplesamlphp/log
+            - ./startup.sh:/var/www/startup.sh
+            # Add a volume to share certificates with the client
+            - ../saml-test-client/cert:/var/www/client/cert
+        environment:
+            - SIMPLESAMLPHP_CONFIG_DIR=/var/www/simplesamlphp/config
+        # Give the container a fixed hostname
+        hostname: saml-idp
+
+volumes:
+    simplesaml_metadata:

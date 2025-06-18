@@ -1,0 +1,10 @@
+# SimpleSAMLphp log files
+/log/simplesamlphp.log
+
+# Generated certificates
+/cert/server.crt
+/cert/server.pem
+
+# macOS metadata files
+.DS_Store
+*/.DS_Store
