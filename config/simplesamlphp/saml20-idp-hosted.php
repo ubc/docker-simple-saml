@@ -9,6 +9,8 @@
 $metadata['__DYNAMIC:1__'] = array(
 	'host'                  => '__DEFAULT__',
 
+	'SingleLogoutService'   => 'http://localhost:8080/simplesaml/saml2/idp/SingleLogoutService.php',
+
 	// The private key and certificate used by this IdP.
 	'privatekey'            => 'server.pem',
 	'certificate'           => 'server.crt',
@@ -39,6 +41,8 @@ $metadata['__DYNAMIC:1__'] = array(
 $metadata['https://localhost:8443/simplesaml/saml2/idp/metadata.php'] = array(
 	'host'                  => 'localhost',
 
+	'SingleLogoutService'   => 'https://localhost:8443/simplesaml/saml2/idp/SingleLogoutService.php',
+
 	// The private key and certificate used by this IdP.
 	'privatekey'            => 'server.pem',
 	'certificate'           => 'server.crt',
@@ -68,6 +72,8 @@ $metadata['https://localhost:8443/simplesaml/saml2/idp/metadata.php'] = array(
 // Also add a HTTP entry for localhost.
 $metadata['http://localhost:8080/simplesaml/saml2/idp/metadata.php'] = array(
 	'host'                  => 'localhost',
+
+	'SingleLogoutService'   => 'http://localhost:8080/simplesaml/saml2/idp/SingleLogoutService.php',
 
 	// The private key and certificate used by this IdP.
 	'privatekey'            => 'server.pem',

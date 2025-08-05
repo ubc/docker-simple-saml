@@ -1,0 +1,63 @@
+/*
+ * This file contains the custom styles to make the SimpleSAMLphp
+ * login page look like the UBC CWL login page.
+ */
+
+/* Main content area adjustments */
+.content {
+    background-color: #fff;
+    padding: 2rem 0; /* Add vertical padding, remove horizontal */
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    max-width: none;
+}
+
+#login-form-wrapper .form-horizontal .control-label {
+    width: 90px; /* Adjust label width */
+}
+
+#login-form-wrapper .form-horizontal .controls {
+    margin-left: 110px; /* Adjust control margin */
+}
+
+#login-form-wrapper input.input-xlarge {
+    background-color: #ffffdd;
+    border: 1px solid #ccc;
+}
+
+#login-form-wrapper .form-actions {
+    background-color: transparent;
+    border-top: none;
+    padding-left: 110px; /* Align with controls */
+}
+
+#login-info-wrapper .well {
+    background-color: #f0f6f9;
+    border: 1px solid #e0e8eb;
+}
+
+#login-info-wrapper .well h4 {
+    font-size: 14px;
+    margin-top: 0;
+    color: #002145;
+}
+
+#login-info-wrapper .well ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+#login-info-wrapper .well ul li {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+/* Override some base CLF styles for this specific page */
+#ubc7-footer {
+    margin-top: 2rem;
+}
+
+.fake-cwl-make-red {
+    color: red !important;
+}

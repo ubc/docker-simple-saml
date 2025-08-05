@@ -1,11 +1,11 @@
 #!/bin/bash
+echo "--------------------------------"
+echo "[STARTUP] Starting SimpleSAMLphp startup script..."
 
-echo "Starting SimpleSAMLphp startup script..."
-
-echo "Checking for certificates..."
+echo "[STARTUP] Checking for certificates..."
 # Check if certificates exist
 if [ ! -f /var/www/simplesamlphp/cert/server.crt ] || [ ! -f /var/www/simplesamlphp/cert/server.pem ]; then
-    echo "Certificates not found. Generating self-signed certificates..."
+    echo "[STARTUP] Certificates not found. Generating self-signed certificates..."
 
     # Create directory if it doesn't exist
     mkdir -p /var/www/simplesamlphp/cert
@@ -23,12 +23,12 @@ if [ ! -f /var/www/simplesamlphp/cert/server.crt ] || [ ! -f /var/www/simplesaml
         cp /var/www/simplesamlphp/cert/server.crt /var/www/client/cert/
     fi
 fi
-echo "Completed checking for certificates. You will need to copy the server.crt file to your application to allow it to trust the IDP."
+echo "[STARTUP] Completed checking for certificates. You will need to copy the server.crt file to your application to allow it to trust the IDP."
 
 
 # Ensure correct permissions on metadata, cache, log, and cert directories
 # Use try/catch to handle permission errors gracefully
-echo "Setting directory permissions..."
+echo "[STARTUP] Setting directory permissions..."
 chown -R www-data:www-data /var/www/simplesamlphp/metadata || echo "Warning: Could not set ownership on metadata directory"
 chown -R www-data:www-data /tmp/simplesamlphp-cache || echo "Warning: Could not set ownership on cache directory"
 chown -R www-data:www-data /tmp/simplesamlphp-sessions || echo "Warning: Could not set ownership on sessions directory"
@@ -45,12 +45,12 @@ chmod -R 755 /tmp/simplesamlphp-temp || echo "Warning: Could not set permissions
 # Make sure the cert files are readable - ignore errors for mounted volumes
 chmod 644 /var/www/simplesamlphp/cert/server.crt || echo "Warning: Could not set permissions on server.crt"
 chmod 600 /var/www/simplesamlphp/cert/server.pem || echo "Warning: Could not set permissions on server.pem"
-echo "Completed setting directory permissions."
+echo "[STARTUP] Completed setting directory permissions."
 
-echo "Checking for custom scripts..."
+echo "[STARTUP] Checking for custom scripts..."
 # Check if custom scripts are correctly mounted
 if [ -f /var/www/simplesamlphp/www/custom/test-idp-init.php ]; then
-    echo "IdP test script found at the correct location"
+    echo "[STARTUP] IdP test script found at the correct location"
     # Copy it to the public directory for easier access
     cp /var/www/simplesamlphp/www/custom/test-idp-init.php /var/www/simplesamlphp/public/
     chown www-data:www-data /var/www/simplesamlphp/public/test-idp-init.php
@@ -58,13 +58,14 @@ if [ -f /var/www/simplesamlphp/www/custom/test-idp-init.php ]; then
     cp /var/www/simplesamlphp/www/custom/test.php /var/www/simplesamlphp/public/
     chown www-data:www-data /var/www/simplesamlphp/public/test.php
     chmod 644 /var/www/simplesamlphp/public/test.php
-    echo "Copied test-idp-init.php to public directory"
+    echo "[STARTUP] Copied test-idp-init.php to public directory"
 else
-    echo "WARNING: IdP test script not found"
+    echo "[STARTUP] WARNING: IdP test script not found"
 fi
 
 # Print server status
-echo "Starting Apache..."
+echo "[STARTUP] Starting Apache..."
+echo "--------------------------------"
 
 # Start Apache
 exec apache2-foreground

@@ -8,8 +8,9 @@ RUN apt-get update && apt-get install -y \
     unzip \
     wget \
     openssl \
+    libsqlite3-dev \
     && docker-php-ext-install xml \
-    && docker-php-ext-install mysqli pdo pdo_mysql \
+    && docker-php-ext-install mysqli pdo pdo_mysql pdo_sqlite \
     && a2enmod ssl rewrite
 
 # Install Composer
@@ -24,6 +25,7 @@ RUN mkdir -p /var/www/simplesamlphp/config \
     /var/www/simplesamlphp/metadata \
     /var/www/simplesamlphp/cert \
     /var/www/simplesamlphp/log \
+    /var/www/simplesamlphp/data \
     /tmp/simplesamlphp-cache \
     /tmp/simplesamlphp-sessions \
     /tmp/simplesamlphp-temp

@@ -14,7 +14,7 @@ $config = array(
 		'exampleauth:UserPass',
 
 		'users' => array(
-			'faculty:faculty123password' => array(
+			'faculty:faculty' => array(
 				'uid'                        => array( 'faculty-user' ),
 				'cwlLoginName'               => array( 'faculty-user' ),
 				'cwlLoginKey'                => array( '12345678' ),
@@ -29,7 +29,7 @@ $config = array(
 				'isMemberOf'                 => array( 'Services:Email:User' ),
 			),
 
-			'student:student123'         => array(
+			'student:student' => array(
 				'uid'                        => array( 'student-user' ),
 				'cwlLoginName'               => array( 'student-user' ),
 				'cwlLoginKey'                => array( '87654321' ),

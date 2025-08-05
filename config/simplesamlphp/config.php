@@ -28,6 +28,8 @@ $config = array(
 
 	'baseurlpath'                 => 'simplesaml/',
 
+	'theme.use'                   => 'ubc-clf-7:ubc-clf-7',
+
 	// Tell SimpleSAMLphp to load metadata from the config directory.
 	'metadata.sources'            => array(
 		array( 'type' => 'flatfile' ),
@@ -61,7 +63,12 @@ $config = array(
 		'validatexml' => false,
 	),
 
-	'store.type'                  => 'phpsession',
+	'store.type'                  => 'sql',
+	'store.sql.dsn'               => 'sqlite:/var/www/simplesamlphp/data/sqlitedatabase.sq3',
+	'store.sql.username'          => null,
+	'store.sql.password'          => null,
+	'store.sql.prefix'            => 'simplesaml',
+
 	'session.phpsession.savepath' => '/tmp/simplesamlphp-sessions',
 
 	'admin.protectindexpage'      => false,
@@ -75,5 +82,6 @@ $config = array(
 		'core'        => true,
 		'saml'        => true,
 		'admin'       => true,
+		'ubc-clf-7'   => true,
 	),
 );
