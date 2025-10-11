@@ -6,9 +6,17 @@
  */
 
 $local_apps = array(
-	'https://tlef-biocbot' => 'http://localhost:8050',
-	'https://tlef-create'  => 'http://localhost:8051',
-	'https://tlef-grasp'   => 'http://localhost:8052',
+	// Original entityIDs for named apps.
+	'https://tlef-biocbot'  => 'http://localhost:8050',
+	'https://tlef-create'   => 'http://localhost:8051',
+	'https://tlef-grasp'    => 'http://localhost:8052',
+	'https://tlef-engeai'   => 'http://localhost:8020',
+
+	// Localhost entityIDs used by SP Issuer in AuthnRequest.
+	'http://localhost:8050' => 'http://localhost:8050',
+	'http://localhost:8051' => 'http://localhost:8051',
+	'http://localhost:8052' => 'http://localhost:8052',
+	'http://localhost:8020' => 'http://localhost:8020',
 );
 
 $default_attributes = array(
