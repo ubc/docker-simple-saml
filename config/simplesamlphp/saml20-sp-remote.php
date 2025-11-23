@@ -17,6 +17,7 @@ $local_apps = array(
 	'http://localhost:8051' => 'http://localhost:8051',
 	'http://localhost:8052' => 'http://localhost:8052',
 	'http://localhost:8020' => 'http://localhost:8020',
+	'http://localhost:3000' => 'http://localhost:3000',
 );
 
 $default_attributes = array(
@@ -52,3 +53,6 @@ foreach ( $local_apps as $app_id => $base_url ) {
 		'validate.logout'          => false,
 	);
 }
+
+// Override ACS URL for the passport-ubcshib example app to match its route
+$metadata['http://localhost:3000']['AssertionConsumerService'][0]['Location'] = 'http://localhost:3000/auth/ubcshib/callback';

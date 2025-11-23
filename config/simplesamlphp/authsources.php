@@ -43,6 +43,20 @@ $config = array(
 				'eduPersonTargetedId'        => array( 'http://localhost:8080!https://your-app!ID987654321' ),
 				'isMemberOf'                 => array( 'Services:Email:User' ),
 			),
+
+			'staff:staff' => array(
+				'uid'                        => array( 'staff-user' ),
+				'cwlLoginName'               => array( 'staff-user' ),
+				'cwlLoginKey'                => array( '11223344' ),
+				'eduPersonAffiliation'       => array( 'staff' ),
+				'eduPersonScopedAffiliation' => array( 'staff@ubc.ca' ),
+				'eduPersonPrincipalName'     => array( 'staff-user@ubc.ca' ),
+				'employeeNumber'             => array( '99887766' ),
+				'givenName'                  => array( 'Staff' ),
+				'sn'                         => array( 'Member' ),
+				'eduPersonTargetedId'        => array( 'http://localhost:8080!https://your-app!ID11223344' ),
+				'isMemberOf'                 => array( 'Services:Email:User' ),
+			),
 		),
 	),
 );
