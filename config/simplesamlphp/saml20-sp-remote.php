@@ -17,7 +17,7 @@ $local_apps = array(
 	'http://localhost:8051' => 'http://localhost:8051',
 	'http://localhost:8052' => 'http://localhost:8052',
 	'http://localhost:8020' => 'http://localhost:8020',
-	'http://localhost:3000' => 'http://localhost:3000',
+	'http://localhost:5001' => 'http://localhost:5001',
 );
 
 $default_attributes = array(
