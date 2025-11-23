@@ -34,6 +34,7 @@ $metadata['__DYNAMIC:1__'] = array(
 		'employeeNumber',
 		'studentNumber',
 		'eduPersonTargetedId',
+		'ubcEduCwlPuid',
 	),
 );
 
