@@ -56,3 +56,27 @@ foreach ( $local_apps as $app_id => $base_url ) {
 
 // Override ACS URL for the passport-ubcshib example app to match its route
 $metadata['http://localhost:3000']['AssertionConsumerService'][0]['Location'] = 'http://localhost:3000/auth/ubcshib/callback';
+
+// canvas-bridge — needs ubcEduCwlPuid and mail in addition to default attributes
+$metadata['http://localhost:6060'] = array(
+	'AssertionConsumerService' => array(
+		array(
+			'index'    => 0,
+			'Binding'  => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST',
+			'Location' => 'http://localhost:6060/auth/saml/callback',
+		),
+	),
+	'SingleLogoutService'      => array(
+		array(
+			'Binding'  => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
+			'Location' => 'http://localhost:6060/auth/logout',
+		),
+	),
+	'NameIDFormat'             => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+	'simplesaml.attributes'    => true,
+	'attributes'               => array_merge( $default_attributes, array( 'ubcEduCwlPuid', 'mail' ) ),
+	'saml20.sign.assertion'    => true,
+	'saml20.sign.response'     => true,
+	'validate.authnrequest'    => false,
+	'validate.logout'          => false,
+);

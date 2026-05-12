@@ -99,5 +99,7 @@ $metadata['http://localhost:8080/simplesaml/saml2/idp/metadata.php'] = array(
 		'employeeNumber',
 		'studentNumber',
 		'eduPersonTargetedId',
+		'ubcEduCwlPuid',
+		'mail',
 	),
 );
