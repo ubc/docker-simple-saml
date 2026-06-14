@@ -4,7 +4,7 @@ services:
             context: .
             dockerfile: Dockerfile
         ports:
-            - '8080:80'
+            - '6122:80'
             - '8443:443'
         volumes:
             - ./config/simplesamlphp:/var/www/simplesamlphp/config

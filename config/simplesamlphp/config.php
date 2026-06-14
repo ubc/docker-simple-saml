@@ -40,7 +40,7 @@ $config = array(
 	),
 
 	// IMPORTANT: Add this line to set the correct base hostname.
-	'basehostname'                => 'http://localhost:8080',
+	'basehostname'                => 'http://localhost:6122',
 
 	// Set production to false for development.
 	'production'                  => false,
@@ -54,7 +54,7 @@ $config = array(
 	'organization'                => array(
 		'name'        => array( 'en' => 'UBC Development IdP' ),
 		'displayname' => array( 'en' => 'UBC Development' ),
-		'url'         => array( 'en' => 'http://localhost:8080' ),
+		'url'         => array( 'en' => 'http://localhost:6122' ),
 	),
 
 	'debug'                       => array(
@@ -74,7 +74,7 @@ $config = array(
 	'admin.protectindexpage'      => false,
 	'admin.protectmetadata'       => false,
 
-	'trusted.url.domains'         => array( 'localhost' ),
+	'trusted.url.domains'         => array( 'localhost', 'localhost:4000', 'localhost:6122' ),
 	'memcache_store.servers'      => array( array( 'hostname' => '127.0.0.1' ) ),
 
 	'module.enable'               => array(
