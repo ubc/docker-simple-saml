@@ -80,3 +80,27 @@ $metadata['http://localhost:6060'] = array(
 	'validate.authnrequest'    => false,
 	'validate.logout'          => false,
 );
+
+// Vibonarium gateway SP — needs ubcEduCwlPuid (primary key), mail, and cwlLoginName.
+$metadata['http://localhost:4000'] = array(
+	'AssertionConsumerService' => array(
+		array(
+			'index'    => 0,
+			'Binding'  => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST',
+			'Location' => 'http://localhost:4000/auth/ubcshib/callback',
+		),
+	),
+	'SingleLogoutService'      => array(
+		array(
+			'Binding'  => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
+			'Location' => 'http://localhost:4000/auth/logout',
+		),
+	),
+	'NameIDFormat'             => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+	'simplesaml.attributes'    => true,
+	'attributes'               => array_merge( $default_attributes, array( 'ubcEduCwlPuid', 'mail', 'cwlLoginName' ) ),
+	'saml20.sign.assertion'    => true,
+	'saml20.sign.response'     => true,
+	'validate.authnrequest'    => false,
+	'validate.logout'          => false,
+);
