@@ -20,7 +20,7 @@ $spEntityId = 'https://your-app1-entity-id';
 $returnTo = 'http://localhost:8050/';
 
 // Construct the URL
-$ssoUrl  = 'http://localhost:8080/simplesaml/saml2/idp/SSOService.php';
+$ssoUrl  = 'http://localhost:6122/simplesaml/saml2/idp/SSOService.php';
 $ssoUrl .= '?spentityid=' . urlencode( $spEntityId );
 $ssoUrl .= '&RelayState=' . urlencode( $returnTo );
 

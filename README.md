@@ -19,7 +19,7 @@ To get the IdP running on your local machine, you will need [Docker](https://www
     ```
     This command will build the Docker image, start the container in the background, and generate self-signed certificates if they don't exist.
 
-The SAML IdP will be available at `http://localhost:8080/simplesaml/`.
+The SAML IdP will be available at `http://localhost:6122/simplesaml/`.
 
 ## Configuration
 
@@ -47,16 +47,16 @@ Once the container is running, you can test its functionality:
 
 1.  **IdP-Initiated Login Page:**
 
-    -   Visit `http://localhost:8080/simplesaml/test-idp-init.php` for a simple test page.
+    -   Visit `http://localhost:6122/simplesaml/test-idp-init.php` for a simple test page.
 
 2.  **Direct Login Page:**
 
     -   To see the IdP's login screen directly, visit:
-        `http://localhost:8080/simplesaml/module.php/core/authenticate.php?as=example-userpass`
+        `http://localhost:6122/simplesaml/module.php/core/authenticate.php?as=example-userpass`
 
 3.  **Viewing Logs:**
     -   Log files are written to the `./log/` directory on your local machine. You can view the `simplesamlphp.log` file there to debug any issues.
 
 ## Metadata
 
--   **IdP Metadata:** You can find the IdP's metadata XML at `http://localhost:8080/simplesaml/saml2/idp/metadata.php`. This URL is typically provided to an SP during configuration.
+-   **IdP Metadata:** You can find the IdP's metadata XML at `http://localhost:6122/simplesaml/saml2/idp/metadata.php`. This URL is typically provided to an SP during configuration.

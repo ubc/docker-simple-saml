@@ -26,7 +26,7 @@ $config = array(
 				'employeeNumber'         => array( '4520000' ),
 				'givenName'              => array( 'John' ),
 				'sn'                     => array( 'Faculty' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID123456789' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID123456789' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -42,7 +42,7 @@ $config = array(
 				'studentNumber'          => array( '12345678' ),
 				'givenName'              => array( 'Jane' ),
 				'sn'                     => array( 'Student' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID987654321' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID987654321' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -57,7 +57,7 @@ $config = array(
 				'employeeNumber'         => array( '99887766' ),
 				'givenName'              => array( 'Staff' ),
 				'sn'                     => array( 'Member' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID11223344' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID11223344' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
