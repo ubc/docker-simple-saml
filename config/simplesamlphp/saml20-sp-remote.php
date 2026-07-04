@@ -104,3 +104,32 @@ $metadata['http://localhost:4000'] = array(
 	'validate.authnrequest'    => false,
 	'validate.logout'          => false,
 );
+
+// Open WebUI — SAML SSO Event function SP (functions/saml_sso.py in the
+// openwebui repo). minisaml expects exactly one signature, so sign the
+// Response only, not the Assertion.
+$metadata['http://localhost:3000/saml/metadata'] = array(
+	'AssertionConsumerService' => array(
+		array(
+			'index'    => 0,
+			'Binding'  => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST',
+			'Location' => 'http://localhost:3000/saml/acs',
+		),
+	),
+	'NameIDFormat'             => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+	'simplesaml.attributes'    => true,
+	'attributes'               => array(
+		'uid',
+		'mail',
+		'givenName',
+		'sn',
+		'eduPersonAffiliation',
+		'eduPersonPrincipalName',
+		'eduPersonEntitlement',
+		'isMemberOf',
+		'ubcEduCwlPuid',
+	),
+	'saml20.sign.response'     => true,
+	'saml20.sign.assertion'    => false,
+	'validate.authnrequest'    => false,
+);
