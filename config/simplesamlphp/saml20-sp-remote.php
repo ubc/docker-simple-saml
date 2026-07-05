@@ -18,6 +18,9 @@ $local_apps = array(
 	'http://localhost:8052' => 'http://localhost:8052',
 	'http://localhost:8020' => 'http://localhost:8020',
 	'http://localhost:5001' => 'http://localhost:5001',
+
+	// tlef-financebot boilerplate (runs on PORT=6118, uses passport-ubcshib).
+	'http://localhost:6118' => 'http://localhost:6118',
 );
 
 $default_attributes = array(
@@ -57,6 +60,9 @@ foreach ( $local_apps as $app_id => $base_url ) {
 // Override ACS URL for the passport-ubcshib example app to match its route
 $metadata['http://localhost:3000']['AssertionConsumerService'][0]['Location'] = 'http://localhost:3000/auth/ubcshib/callback';
 
+// tlef-financebot boilerplate — passport-ubcshib posts to /auth/ubcshib/callback.
+$metadata['http://localhost:6118']['AssertionConsumerService'][0]['Location'] = 'http://localhost:6118/auth/ubcshib/callback';
+
 // canvas-bridge — needs ubcEduCwlPuid and mail in addition to default attributes
 $metadata['http://localhost:6060'] = array(
 	'AssertionConsumerService' => array(
@@ -94,6 +100,31 @@ $metadata['http://localhost:4000'] = array(
 		array(
 			'Binding'  => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
 			'Location' => 'http://localhost:4000/auth/logout',
+		),
+	),
+	'NameIDFormat'             => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+	'simplesaml.attributes'    => true,
+	'attributes'               => array_merge( $default_attributes, array( 'ubcEduCwlPuid', 'mail', 'cwlLoginName' ) ),
+	'saml20.sign.assertion'    => true,
+	'saml20.sign.response'     => true,
+	'validate.authnrequest'    => false,
+	'validate.logout'          => false,
+);
+
+// CodingWorkspace local prototype (saml-dev-idp mode). Entity ID must match
+// CODINGWORKSPACE_SAML_DEV_ENTITY_ID / the spentityid the app sends to SSOService.php.
+$metadata['http://127.0.0.1:8768/CodingWorkspace/saml/metadata'] = array(
+	'AssertionConsumerService' => array(
+		array(
+			'index'    => 0,
+			'Binding'  => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST',
+			'Location' => 'http://127.0.0.1:8768/CodingWorkspace/saml/acs',
+		),
+	),
+	'SingleLogoutService'      => array(
+		array(
+			'Binding'  => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
+			'Location' => 'http://127.0.0.1:8768/CodingWorkspace/saml/logout',
 		),
 	),
 	'NameIDFormat'             => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
