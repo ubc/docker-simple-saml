@@ -141,6 +141,36 @@ $config = array(
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
+			'staff_advisor:staff_advisor' => array(
+				'uid'                    => array( 'staff_advisor' ),
+				'cwlLoginName'           => array( 'staff_advisor' ),
+				'cwlLoginKey'            => array( '43000001' ),
+				'ubcEduCwlPuid'          => array( '43000001' ),
+				'eduPersonAffiliation'   => array( 'staff' ),
+				'mail'                   => array( 'staff_advisor@ubc.ca' ),
+				'eduPersonPrincipalName' => array( 'staff_advisor@ubc.ca' ),
+				'employeeNumber'         => array( '4550001' ),
+				'givenName'              => array( 'Amara' ),
+				'sn'                     => array( 'Okafor' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID43000001' ),
+				'isMemberOf'             => array( 'Services:Email:User' ),
+			),
+
+			'staff_researcher:staff_researcher' => array(
+				'uid'                    => array( 'staff_researcher' ),
+				'cwlLoginName'           => array( 'staff_researcher' ),
+				'cwlLoginKey'            => array( '43000002' ),
+				'ubcEduCwlPuid'          => array( '43000002' ),
+				'eduPersonAffiliation'   => array( 'staff' ),
+				'mail'                   => array( 'staff_researcher@ubc.ca' ),
+				'eduPersonPrincipalName' => array( 'staff_researcher@ubc.ca' ),
+				'employeeNumber'         => array( '4550002' ),
+				'givenName'              => array( 'Theo' ),
+				'sn'                     => array( 'Martin' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID43000002' ),
+				'isMemberOf'             => array( 'Services:Email:User' ),
+			),
+
 			// =================================================================
 			// EXTRA PERSONAS — broader account spread for manual testing.
 			// PUID (cwlLoginKey/ubcEduCwlPuid) + employeeNumber/studentNumber
@@ -515,7 +545,7 @@ $config = array(
 				'cwlLoginName'           => array( 'ta_student' ),
 				'cwlLoginKey'            => array( '42000010' ),
 				'ubcEduCwlPuid'          => array( '42000010' ),
-				'eduPersonAffiliation'   => array( 'student' ),
+				'eduPersonAffiliation'   => array( 'student', 'staff' ),
 				'mail'                   => array( 'ta_student@student.ubc.ca' ),
 				'eduPersonPrincipalName' => array( 'ta_student@student.ubc.ca' ),
 				'eduPersonEntitlement'   => array( 'urn:mace:ubc.ca:library' ),
@@ -524,6 +554,24 @@ $config = array(
 				'givenName'              => array( 'Jonas' ),
 				'sn'                     => array( 'Weber' ),
 				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID42000010' ),
+				'isMemberOf'             => array( 'Services:Email:User' ),
+			),
+
+			// ta_student2 — second TA with both student and staff associations.
+			'ta_student2:ta_student2' => array(
+				'uid'                    => array( 'ta_student2' ),
+				'cwlLoginName'           => array( 'ta_student2' ),
+				'cwlLoginKey'            => array( '42000013' ),
+				'ubcEduCwlPuid'          => array( '42000013' ),
+				'eduPersonAffiliation'   => array( 'student', 'staff' ),
+				'mail'                   => array( 'ta_student2@student.ubc.ca' ),
+				'eduPersonPrincipalName' => array( 'ta_student2@student.ubc.ca' ),
+				'eduPersonEntitlement'   => array( 'urn:mace:ubc.ca:library' ),
+				'studentNumber'          => array( '53310013' ),
+				'employeeNumber'         => array( '4540002' ),
+				'givenName'              => array( 'Mei' ),
+				'sn'                     => array( 'Santos' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID42000013' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
