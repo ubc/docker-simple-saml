@@ -1,0 +1,18 @@
+# Keep cert/ and log/ out of the build context. docker-compose.yml creates them
+# at runtime as bind mounts, and cert/ holds a generated private key
+# (server.pem) — it must never end up in an image layer or a pushed context.
+cert
+log
+
+# Not needed by the build.
+.git
+.github
+*.md
+docker-compose.yml
+.DS_Store
+*/.DS_Store
+
+# NOTE: config/, www/ and modules/ are deliberately NOT excluded.
+# config/apache/simplesamlphp.conf is COPYed by the Dockerfile, and the rest is
+# small (~400K) and bind-mounted at runtime by compose. Excluding them would
+# save nothing meaningful and would silently break a future COPY.
