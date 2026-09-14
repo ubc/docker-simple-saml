@@ -9,7 +9,7 @@ $local_apps = array(
 	// Original entityIDs for named apps.
 	'https://tlef-biocbot'  => 'http://localhost:8050',
 	'https://tlef-create'   => 'http://localhost:8051',
-	'https://tlef-grasp'    => 'http://localhost:8052',
+	'https://tlef-grasp'    => 'http://localhost:8070',
 	'https://tlef-engeai'   => 'http://localhost:8020',
 
 	// Localhost entityIDs used by SP Issuer in AuthnRequest.
@@ -18,6 +18,7 @@ $local_apps = array(
 	'http://localhost:8052' => 'http://localhost:8052',
 	'http://localhost:8020' => 'http://localhost:8020',
 	'http://localhost:5001' => 'http://localhost:5001',
+	'http://localhost:8070' => 'http://localhost:8070',
 
 	// tlef-financebot boilerplate (runs on PORT=6118, uses passport-ubcshib).
 	'http://localhost:6118' => 'http://localhost:6118',
