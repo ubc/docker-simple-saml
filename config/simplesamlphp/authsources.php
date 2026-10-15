@@ -26,7 +26,7 @@ $config = array(
 				'employeeNumber'         => array( '4520001' ),
 				'givenName'              => array( 'Bianca' ),
 				'sn'                     => array( 'Professor' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID234567890' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID234567890' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -42,7 +42,7 @@ $config = array(
 				'employeeNumber'         => array( '4520002' ),
 				'givenName'              => array( 'Bernard' ),
 				'sn'                     => array( 'Professor' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID456789012' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID456789012' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -58,7 +58,7 @@ $config = array(
 				'studentNumber'          => array( '53210001' ),
 				'givenName'              => array( 'Bruno' ),
 				'sn'                     => array( 'Student' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID345678901' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID345678901' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -74,7 +74,7 @@ $config = array(
 				'studentNumber'          => array( '53210002' ),
 				'givenName'              => array( 'Beatrice' ),
 				'sn'                     => array( 'Student' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID567890123' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID567890123' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -90,7 +90,7 @@ $config = array(
 				'studentNumber'          => array( '53210003' ),
 				'givenName'              => array( 'Bennett' ),
 				'sn'                     => array( 'Student' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID678901234' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID678901234' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -152,7 +152,7 @@ $config = array(
 				'employeeNumber'         => array( '4550001' ),
 				'givenName'              => array( 'Amara' ),
 				'sn'                     => array( 'Okafor' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID43000001' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID43000001' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -167,7 +167,7 @@ $config = array(
 				'employeeNumber'         => array( '4550002' ),
 				'givenName'              => array( 'Theo' ),
 				'sn'                     => array( 'Martin' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID43000002' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID43000002' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -193,7 +193,7 @@ $config = array(
 				'employeeNumber'         => array( '4530001' ),
 				'givenName'              => array( 'Felix' ),
 				'sn'                     => array( 'Ramos' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID41000001' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID41000001' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -210,7 +210,7 @@ $config = array(
 				'employeeNumber'         => array( '4530002' ),
 				'givenName'              => array( 'Greta' ),
 				'sn'                     => array( 'Lindqvist' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID41000002' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID41000002' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -227,7 +227,7 @@ $config = array(
 				'employeeNumber'         => array( '4530003' ),
 				'givenName'              => array( 'Harold' ),
 				'sn'                     => array( 'Nkemelu' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID41000003' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID41000003' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -244,7 +244,7 @@ $config = array(
 				'employeeNumber'         => array( '4530004' ),
 				'givenName'              => array( 'Ingrid' ),
 				'sn'                     => array( 'Sorensen' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID41000004' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID41000004' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -261,7 +261,7 @@ $config = array(
 				'employeeNumber'         => array( '4530005' ),
 				'givenName'              => array( 'Julius' ),
 				'sn'                     => array( 'Adeyemi' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID41000005' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID41000005' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -278,7 +278,7 @@ $config = array(
 				'employeeNumber'         => array( '4530006' ),
 				'givenName'              => array( 'Karina' ),
 				'sn'                     => array( 'Volkov' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID41000006' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID41000006' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -295,7 +295,7 @@ $config = array(
 				'employeeNumber'         => array( '4530007' ),
 				'givenName'              => array( 'Mira' ),
 				'sn'                     => array( 'Dvorak' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID41000007' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID41000007' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -312,7 +312,7 @@ $config = array(
 				'employeeNumber'         => array( '4530008' ),
 				'givenName'              => array( 'Nadia' ),
 				'sn'                     => array( 'OBrien' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID41000008' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID41000008' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -329,7 +329,7 @@ $config = array(
 				'employeeNumber'         => array( '4530009' ),
 				'givenName'              => array( 'Oscar' ),
 				'sn'                     => array( 'Pavlenko' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID41000009' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID41000009' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -347,7 +347,7 @@ $config = array(
 				'studentNumber'          => array( '53320001' ),
 				'givenName'              => array( 'Petra' ),
 				'sn'                     => array( 'Castellanos' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID41000010' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID41000010' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -364,7 +364,7 @@ $config = array(
 				'employeeNumber'         => array( '4530011' ),
 				'givenName'              => array( 'Quincy' ),
 				'sn'                     => array( 'Abara' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID41000011' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID41000011' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -381,7 +381,7 @@ $config = array(
 				'employeeNumber'         => array( '4530012' ),
 				'givenName'              => array( 'Rosa' ),
 				'sn'                     => array( 'Beaumont' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID41000012' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID41000012' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -399,7 +399,7 @@ $config = array(
 				'studentNumber'          => array( '53310001' ),
 				'givenName'              => array( 'Aiko' ),
 				'sn'                     => array( 'Tanaka' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID42000001' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID42000001' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -416,7 +416,7 @@ $config = array(
 				'studentNumber'          => array( '53310002' ),
 				'givenName'              => array( 'Bjorn' ),
 				'sn'                     => array( 'Eriksson' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID42000002' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID42000002' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -433,7 +433,7 @@ $config = array(
 				'studentNumber'          => array( '53310003' ),
 				'givenName'              => array( 'Chloe' ),
 				'sn'                     => array( 'Mbeki' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID42000003' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID42000003' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -450,7 +450,7 @@ $config = array(
 				'studentNumber'          => array( '53310004' ),
 				'givenName'              => array( 'Diego' ),
 				'sn'                     => array( 'Ferreira' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID42000004' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID42000004' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -467,7 +467,7 @@ $config = array(
 				'studentNumber'          => array( '53310005' ),
 				'givenName'              => array( 'Elina' ),
 				'sn'                     => array( 'Korhonen' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID42000005' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID42000005' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -484,7 +484,7 @@ $config = array(
 				'studentNumber'          => array( '53310006' ),
 				'givenName'              => array( 'Farid' ),
 				'sn'                     => array( 'Nasser' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID42000006' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID42000006' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -501,7 +501,7 @@ $config = array(
 				'studentNumber'          => array( '53310007' ),
 				'givenName'              => array( 'Gabriela' ),
 				'sn'                     => array( 'Rossi' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID42000007' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID42000007' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -518,7 +518,7 @@ $config = array(
 				'studentNumber'          => array( '53310008' ),
 				'givenName'              => array( 'Hassan' ),
 				'sn'                     => array( 'Bakr' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID42000008' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID42000008' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -535,7 +535,7 @@ $config = array(
 				'studentNumber'          => array( '53310009' ),
 				'givenName'              => array( 'Ines' ),
 				'sn'                     => array( 'Delacroix' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID42000009' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID42000009' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -553,7 +553,7 @@ $config = array(
 				'employeeNumber'         => array( '4540001' ),
 				'givenName'              => array( 'Jonas' ),
 				'sn'                     => array( 'Weber' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID42000010' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID42000010' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -571,7 +571,7 @@ $config = array(
 				'employeeNumber'         => array( '4540002' ),
 				'givenName'              => array( 'Mei' ),
 				'sn'                     => array( 'Santos' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID42000013' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID42000013' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -588,7 +588,7 @@ $config = array(
 				'studentNumber'          => array( '53310011' ),
 				'givenName'              => array( 'Kenji' ),
 				'sn'                     => array( 'Yamamoto' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID42000011' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID42000011' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 
@@ -605,7 +605,7 @@ $config = array(
 				'studentNumber'          => array( '53310012' ),
 				'givenName'              => array( 'Lucia' ),
 				'sn'                     => array( 'Moreno' ),
-				'eduPersonTargetedId'    => array( 'http://localhost:8080!https://your-app!ID42000012' ),
+				'eduPersonTargetedId'    => array( 'http://localhost:6122!https://your-app!ID42000012' ),
 				'isMemberOf'             => array( 'Services:Email:User' ),
 			),
 		),
