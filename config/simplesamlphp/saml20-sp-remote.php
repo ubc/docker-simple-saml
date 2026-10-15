@@ -2,6 +2,12 @@
 /**
  * SAML 2.0 SP configuration for SimpleSAMLphp.
  *
+ * Each entry's `attributes` list is exactly what the IdP releases to that SP
+ * (core:AttributeLimit in config.php), as real CWL releases only what an app
+ * is registered for. Give every entry a NON-EMPTY list: an empty list releases
+ * everything, and a missing one falls back to the IdP's own list in
+ * saml20-idp-hosted.php.
+ *
  * @package SimpleSAMLphp
  */
 
@@ -22,14 +28,24 @@ $local_apps = array(
 
 	// tlef-financebot boilerplate (runs on PORT=6118, uses passport-ubcshib).
 	'http://localhost:6118' => 'http://localhost:6118',
+
+	// The passport-ubcshib example app and tlef-starter's default SAML_ISSUER.
+	// Its ACS is overridden below. (Before this line existed, that override
+	// created a bare entry with no attribute list.)
+	'http://localhost:3000' => 'http://localhost:3000',
 );
 
+// What a local app receives unless its entry says otherwise. ubcEduCwlPuid
+// and mail are here because apps on passport-ubcshib key people by PUID, and
+// fail with `Missing ubcEduCwlPuid attribute` without it.
 $default_attributes = array(
 	'uid',
 	'eduPersonAffiliation',
 	'eduPersonPrincipalName',
 	'givenName',
 	'sn',
+	'ubcEduCwlPuid',
+	'mail',
 );
 
 // Now create a metadata entry for each local app.
@@ -64,7 +80,7 @@ $metadata['http://localhost:3000']['AssertionConsumerService'][0]['Location'] = 
 // tlef-financebot boilerplate — passport-ubcshib posts to /auth/ubcshib/callback.
 $metadata['http://localhost:6118']['AssertionConsumerService'][0]['Location'] = 'http://localhost:6118/auth/ubcshib/callback';
 
-// canvas-bridge — needs ubcEduCwlPuid and mail in addition to default attributes
+// canvas-bridge — needs ubcEduCwlPuid and mail, both now in the default attributes.
 $metadata['http://localhost:6060'] = array(
 	'AssertionConsumerService' => array(
 		array(
@@ -81,7 +97,7 @@ $metadata['http://localhost:6060'] = array(
 	),
 	'NameIDFormat'             => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
 	'simplesaml.attributes'    => true,
-	'attributes'               => array_merge( $default_attributes, array( 'ubcEduCwlPuid', 'mail' ) ),
+	'attributes'               => $default_attributes,
 	'saml20.sign.assertion'    => true,
 	'saml20.sign.response'     => true,
 	'validate.authnrequest'    => false,
@@ -105,7 +121,7 @@ $metadata['http://localhost:4000'] = array(
 	),
 	'NameIDFormat'             => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
 	'simplesaml.attributes'    => true,
-	'attributes'               => array_merge( $default_attributes, array( 'ubcEduCwlPuid', 'mail', 'cwlLoginName' ) ),
+	'attributes'               => array_merge( $default_attributes, array( 'cwlLoginName' ) ),
 	'saml20.sign.assertion'    => true,
 	'saml20.sign.response'     => true,
 	'validate.authnrequest'    => false,
@@ -130,7 +146,7 @@ $metadata['http://127.0.0.1:8768/CodingWorkspace/saml/metadata'] = array(
 	),
 	'NameIDFormat'             => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
 	'simplesaml.attributes'    => true,
-	'attributes'               => array_merge( $default_attributes, array( 'ubcEduCwlPuid', 'mail', 'cwlLoginName' ) ),
+	'attributes'               => array_merge( $default_attributes, array( 'cwlLoginName' ) ),
 	'saml20.sign.assertion'    => true,
 	'saml20.sign.response'     => true,
 	'validate.authnrequest'    => false,

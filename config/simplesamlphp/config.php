@@ -77,6 +77,18 @@ $config = array(
 	'admin.protectindexpage'      => false,
 	'admin.protectmetadata'       => false,
 
+	// Release to each Service Provider only the attributes its entry in
+	// saml20-sp-remote.php lists, as real CWL releases only what an app is
+	// registered for. Without this filter every SP receives every attribute
+	// of the person, and an app that works here can fail against CWL.
+	//
+	// Two traps: an EMPTY `attributes` list means "no limit" (everything is
+	// released), and a MISSING one falls back to the IdP's own list in
+	// saml20-idp-hosted.php.
+	'authproc.idp'                => array(
+		50 => array( 'class' => 'core:AttributeLimit' ),
+	),
+
 	'trusted.url.domains'         => array( 'localhost', 'localhost:4000', 'localhost:6122' ),
 	'memcache_store.servers'      => array( array( 'hostname' => '127.0.0.1' ) ),
 
