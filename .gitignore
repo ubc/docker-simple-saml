@@ -8,3 +8,6 @@
 # macOS metadata files
 .DS_Store
 */.DS_Store
+
+# Local environment values for docker-compose (may hold secrets)
+.env

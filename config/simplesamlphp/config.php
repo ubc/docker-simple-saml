@@ -6,12 +6,15 @@
  */
 
 $config = array(
-	'auth.adminpassword'          => 'admin123',
+	// Both of these default to the public values this repository has always
+	// shipped. Set SSP_ADMIN_PASSWORD and SSP_SECRET_SALT in the container's
+	// environment to use your own; an unset or empty variable keeps the default.
+	'auth.adminpassword'          => getenv( 'SSP_ADMIN_PASSWORD' ) ?: 'admin123',
 
 	'technicalcontact_name'       => 'UBC Developer',
 	'technicalcontact_email'      => 'dev@example.com',
 
-	'secretsalt'                  => 'yoursupersecuresalthere',
+	'secretsalt'                  => getenv( 'SSP_SECRET_SALT' ) ?: 'yoursupersecuresalthere',
 
 	'auth.adminpassword.hash'     => 'sha256',
 

@@ -18,6 +18,9 @@ services:
             - ../saml-test-client/cert:/var/www/client/cert
         environment:
             - SIMPLESAMLPHP_CONFIG_DIR=/var/www/simplesamlphp/config
+            # Optional. Unset or empty keeps the public defaults in config.php.
+            - SSP_ADMIN_PASSWORD=${SSP_ADMIN_PASSWORD:-}
+            - SSP_SECRET_SALT=${SSP_SECRET_SALT:-}
         # Give the container a fixed hostname
         hostname: saml-idp
 
