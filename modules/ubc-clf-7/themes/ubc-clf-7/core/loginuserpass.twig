@@ -1,3 +1,4 @@
+{% set pagetitle = 'Sign in' %}
 {% extends "@core/_layout.twig" %}
 
 {% block content %}
@@ -16,6 +17,27 @@
             </p>
         </div>
     </div>
+    {#
+        A failed sign-in (a wrong password, say) re-renders this form with
+        `errorcode` set. SimpleSAMLphp's own template reports it through the
+        `errorcodes` title and description maps; this is the same, in the
+        CLF's alert markup (Bootstrap 2.3.2, which clf.css is). role="alert"
+        so a screen reader announces it.
+    #}
+    {% if errorcode -%}
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="alert alert-error" role="alert">
+                {% set errtitles = errorcodes['title'] %}
+                {% set errtitle = errtitles[errorcode] %}
+                <h4>{{ errtitle|trans(errorparams) }}</h4>
+                {% set errdescs = errorcodes['descr'] %}
+                {% set errdesc = errdescs[errorcode] %}
+                <p>{{ errdesc|trans(errorparams) }}</p>
+            </div>
+        </div>
+    </div>
+    {%- endif %}
     <div class="row-fluid">
         <div class="span8" id="login-form-wrapper">
             <form action="{{ formURL }}" method="post" name="login" class="form-horizontal">
@@ -26,13 +48,13 @@
                 <div class="control-group">
                     <label for="username" class="control-label">Login Name</label>
                     <div class="controls">
-                        <input type="text" id="username" name="username" value="{{ username }}" class="input-xlarge" />
+                        <input type="text" id="username" name="username" value="{{ username }}" class="input-xlarge" autocomplete="username" />
                     </div>
                 </div>
                 <div class="control-group">
                     <label for="password" class="control-label">Password</label>
                     <div class="controls">
-                        <input type="password" id="password" name="password" class="input-xlarge" />
+                        <input type="password" id="password" name="password" class="input-xlarge" autocomplete="current-password" />
                     </div>
                 </div>
                 <div class="form-actions">
