@@ -6,7 +6,10 @@
     <div class="row-fluid">
         <div class="span12">
             <h1 class="fake-cwl-make-red">DEFINITELY NOT CWL Authentication</h1>
-            <p>Login to continue to
+            {# SPMetadata is null when no Service Provider asked for this sign-in
+               (the admin pages, admin/test), so test it before reading it. #}
+            <p>Login to continue
+                {%- if SPMetadata is not empty %} to
                 <strong>
                     {%- if SPMetadata.name is defined and SPMetadata.name is not empty -%}
                         {{- SPMetadata.name|trans -}}
@@ -14,6 +17,7 @@
                         {{- SPMetadata.entityid -}}
                     {%- endif -%}
                 </strong>
+                {%- endif %}
             </p>
         </div>
     </div>
