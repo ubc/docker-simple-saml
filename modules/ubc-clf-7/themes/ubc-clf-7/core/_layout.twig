@@ -3,8 +3,12 @@
 <head>
     <meta charset="utf-8">
     <title>{% block page_title %}UBC SimpleSAMLphp{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="/simplesaml/module.php/ubc-clf-7/assets/clf.css" />
-    <link rel="stylesheet" type="text/css" href="/simplesaml/module.php/ubc-clf-7/assets/style.css" />
+    {# asset() builds the URL from SimpleSAMLphp's own base path, so the theme
+       works wherever SimpleSAMLphp is served, not only under /simplesaml/. It
+       adds the `assets/` segment itself: the path is relative to the module's
+       public/assets/ directory. #}
+    <link rel="stylesheet" type="text/css" href="{{ asset('clf.css', 'ubc-clf-7') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('style.css', 'ubc-clf-7') }}" />
 </head>
 <body>
 
