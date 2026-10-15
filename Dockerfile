@@ -56,5 +56,17 @@ RUN chmod -R 755 /tmp/simplesamlphp-cache /tmp/simplesamlphp-sessions /tmp/simpl
 # Expose ports
 EXPOSE 80 443
 
+# Healthy means the IdP can describe itself to an SP: its metadata answers, and
+# carries both an entityID and the signing certificate. A status-only check is
+# not enough. `/` answers 303 even when the page it redirects to answers 500,
+# and the metadata endpoint has been seen answering 500 while a check of the
+# front page stayed green. `curl -f` fails on any HTTP error, and without `-L`
+# a redirect has no entityID in its body, so that fails too.
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
+    CMD body="$(curl -fsS --max-time 8 http://localhost/simplesaml/module.php/saml/idp/metadata)" \
+        && printf '%s' "$body" | grep -q 'entityID=' \
+        && printf '%s' "$body" | grep -q 'X509Certificate' \
+        || exit 1
+
 # Run the startup script instead of apache directly
 CMD ["/var/www/startup.sh"]
