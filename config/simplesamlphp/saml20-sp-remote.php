@@ -91,6 +91,8 @@ foreach ( $local_apps as $app_id => $base_url ) {
 		'saml20.sign.response'     => true,
 		'validate.authnrequest'    => false,
 		'validate.logout'          => false,
+		// Sign the IdP's LogoutRequest/LogoutResponse, as real CWL does.
+		'sign.logout'              => true,
 	);
 }
 
@@ -122,6 +124,7 @@ $metadata['http://localhost:6060'] = array(
 	'saml20.sign.response'     => true,
 	'validate.authnrequest'    => false,
 	'validate.logout'          => false,
+	'sign.logout'              => true,
 );
 
 // Vibonarium gateway SP — needs ubcEduCwlPuid (primary key), mail, and cwlLoginName.
@@ -146,6 +149,7 @@ $metadata['http://localhost:4000'] = array(
 	'saml20.sign.response'     => true,
 	'validate.authnrequest'    => false,
 	'validate.logout'          => false,
+	'sign.logout'              => true,
 );
 
 // CodingWorkspace local prototype (saml-dev-idp mode). Entity ID must match
@@ -171,6 +175,7 @@ $metadata['http://127.0.0.1:8768/CodingWorkspace/saml/metadata'] = array(
 	'saml20.sign.response'     => true,
 	'validate.authnrequest'    => false,
 	'validate.logout'          => false,
+	'sign.logout'              => true,
 );
 
 // Open WebUI — SAML SSO Event function SP (functions/saml_sso.py in the
