@@ -25,14 +25,14 @@ The SAML IdP will be available at `http://localhost:6122/simplesaml/`.
 
 ### Is it healthy?
 
-The image has a health check: the container is `healthy` only when the IdP's metadata answers and carries both its entityID and its signing certificate.
+The image has a health check: the container is `healthy` only when the IdP's metadata answers and carries both its entityID and its signing certificate, **and** the signing key can be loaded by `www-data`, the user Apache signs as.
 
 ```bash
 docker-compose ps                          # STATUS shows (healthy)
 docker inspect --format '{{.State.Health.Status}}' <container-name>
 ```
 
-A fresh container reports `starting` until the first check passes (about 5 seconds after start on current Docker), then it is re-checked every 30 seconds. The check proves the IdP can publish its metadata and certificate; it does not sign anything, so it cannot see an unreadable signing key (the startup script makes the key readable to the web server).
+A fresh container reports `starting` until the first check passes (about 5 seconds after start on current Docker), then it is re-checked every 30 seconds. The key check matters because metadata needs only the certificate: a key that `www-data` cannot read (a root-owned `cert/server.pem` with mode 600 on a Linux host, say) fails every sign-in while the metadata still answers.
 
 ### Which SimpleSAMLphp is this?
 
