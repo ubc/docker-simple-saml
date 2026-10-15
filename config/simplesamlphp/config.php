@@ -82,6 +82,14 @@ $config = array(
 	// registered for. Without this filter every SP receives every attribute
 	// of the person, and an app that works here can fail against CWL.
 	//
+	// AttributeLimit compares the SP's `attributes` list with the attribute
+	// names as they stand at priority 50: the friendly names in
+	// authsources.php. An SP that opts in to UBC's OID names
+	// ($ubc_oid_attribute_names in saml20-sp-remote.php) renames them at
+	// priority 60, AFTER this filter. Run the rename first, or name users'
+	// attributes by OID, and nothing matches the friendly list, so nothing is
+	// released.
+	//
 	// Two traps: an EMPTY `attributes` list means "no limit" (everything is
 	// released), and a MISSING one falls back to the IdP's own list in
 	// saml20-idp-hosted.php.

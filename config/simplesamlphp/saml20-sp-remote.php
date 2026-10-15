@@ -48,6 +48,26 @@ $default_attributes = array(
 	'mail',
 );
 
+// UBC's real attribute names, for an SP that opts in. Real CWL sends
+// attributes under OID names (urn:oid:...) with the `uri` NameFormat. This IdP
+// sends friendly names (uid, mail, ...) unless an SP's entry opts in, because
+// apps written against it read friendly names. To test an app against CWL's
+// naming, merge this into its entry AFTER the entry is defined, e.g.
+//
+//   $metadata['http://localhost:8050'] = array_merge( $metadata['http://localhost:8050'], $ubc_oid_attribute_names );
+//
+// (array_merge replaces an `authproc` the entry already has.) Keep the entry's
+// `attributes` list in FRIENDLY names: core:AttributeLimit (config.php, priority
+// 50) filters on them first, and this rename runs after it, at 60. Swap that
+// order, or list OIDs in `attributes`, and nothing is released at all.
+// ubcEduCwlPuid's OID comes from ../../attributemap/ubcoid.php.
+$ubc_oid_attribute_names = array(
+	'attributes.NameFormat' => 'urn:oasis:names:tc:SAML:2.0:attrname-format:uri',
+	'authproc'              => array(
+		60 => array( 'class' => 'core:AttributeMap', 'name2oid', 'ubcoid' ),
+	),
+);
+
 // Now create a metadata entry for each local app.
 foreach ( $local_apps as $app_id => $base_url ) {
 	$metadata[ $app_id ] = array(
