@@ -32,7 +32,7 @@ docker-compose ps                          # STATUS shows (healthy)
 docker inspect --format '{{.State.Health.Status}}' <container-name>
 ```
 
-It is checked every 30 seconds, so a fresh container shows `starting` for up to a minute.
+A fresh container reports `starting` until the first check passes (about 5 seconds after start on current Docker), then it is re-checked every 30 seconds. The check proves the IdP can publish its metadata and certificate; it does not sign anything, so it cannot see an unreadable signing key (the startup script makes the key readable to the web server).
 
 ### Which SimpleSAMLphp is this?
 
@@ -148,11 +148,14 @@ The entry's `attributes` list stays in **friendly** names: the limit runs first,
 
 #### An app that signs its AuthnRequests
 
-If your app signs its AuthnRequests (with passport-ubcshib, setting `privateKeyPath` does that), the IdP checks the signature, and the SP's entry must carry the app's certificate, or every sign-in is refused with *Missing certificate in metadata*:
+With passport-ubcshib, setting `privateKeyPath` makes your app sign its AuthnRequests. The entries in this file set `'validate.authnrequest' => false`, so the IdP does not check that signature and nothing more is needed. To have the IdP check it, set `validate.authnrequest` to `true` in the app's entry *and* give the entry the app's certificate, or every sign-in is refused with *Missing certificate in metadata*:
 
 ```php
+$metadata['http://localhost:8090']['validate.authnrequest'] = true;
 $metadata['http://localhost:8090']['certData'] = 'MIIC...'; // the app's certificate, base64, no PEM header lines
 ```
+
+(An entry that leaves `validate.authnrequest` out gets the same checking as `true` whenever a request is signed.)
 
 ## Signing out, and switching test user
 
