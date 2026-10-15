@@ -5,7 +5,6 @@ services:
             dockerfile: Dockerfile
         ports:
             - '6122:80'
-            - '8443:443'
         volumes:
             - ./config/simplesamlphp:/var/www/simplesamlphp/config
             - ./cert:/var/www/simplesamlphp/cert
