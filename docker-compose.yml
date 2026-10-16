@@ -20,6 +20,8 @@ services:
             # Optional. Unset or empty keeps the public defaults in config.php.
             - SSP_ADMIN_PASSWORD=${SSP_ADMIN_PASSWORD:-}
             - SSP_SECRET_SALT=${SSP_SECRET_SALT:-}
+            # Optional. Unset or empty keeps the entityID SPs see today.
+            - IDP_ENTITY_ID=${IDP_ENTITY_ID:-}
         # Give the container a fixed hostname
         hostname: saml-idp
 

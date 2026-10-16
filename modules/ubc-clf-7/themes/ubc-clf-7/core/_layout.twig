@@ -1,12 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ currentLanguage|default('en') }}">
 <head>
     <meta charset="utf-8">
-    <title>{% block page_title %}UBC SimpleSAMLphp{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="/simplesaml/module.php/ubc-clf-7/assets/clf.css" />
-    <link rel="stylesheet" type="text/css" href="/simplesaml/module.php/ubc-clf-7/assets/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {# Each page sets `pagetitle` before it extends this layout. #}
+    <title>{% block page_title %}{{ pagetitle|default('Sign in') }}{% endblock %} | UBC test IdP (not CWL)</title>
+    {# asset() builds the URL from SimpleSAMLphp's own base path, so the theme
+       works wherever SimpleSAMLphp is served, not only under /simplesaml/. It
+       adds the `assets/` segment itself: the path is relative to the module's
+       public/assets/ directory. #}
+    <link rel="stylesheet" type="text/css" href="{{ asset('clf.css', 'ubc-clf-7') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('style.css', 'ubc-clf-7') }}" />
 </head>
 <body>
+
+    {# On every page this theme renders, above anything that looks like CWL:
+       this is a test IdP. A static notice, so no role="alert" (a screen reader
+       would announce it on every page load as if something had gone wrong). #}
+    <div id="not-cwl-band">
+        <strong>Test sign-in &mdash; not real CWL.</strong>
+        This is a development identity provider. Do not enter your real CWL credentials.
+    </div>
 
     <header id="ubc7-header" class="row-fluid expand" role="banner">
         <div class="container">

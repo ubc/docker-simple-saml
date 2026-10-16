@@ -1,0 +1,42 @@
+{#
+    The IdP's front page. `/simplesaml/` redirects here, and so does a sign-out
+    of the IdP itself (core/logout without a ReturnTo). Stock, it describes the
+    SimpleSAMLphp software and drops out of the UBC look. Someone can arrive
+    here without ever having signed in, so it must not tell them they are
+    "signed out": it says what this service is, how to sign in, and how to
+    switch test account.
+#}
+{% set pagetitle = 'UBC test identity provider' %}
+{% extends "@core/_layout.twig" %}
+
+{% block content %}
+<div class="container">
+    <div class="row-fluid">
+        <div class="span12">
+            <h1>UBC test identity provider</h1>
+            <p>
+                This is a SimpleSAMLphp identity provider for local development. It stands in
+                for CWL so that an application can be built and tested against a CWL-shaped
+                sign-in. It knows only test accounts, and a real CWL password should never be
+                typed into it.
+            </p>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span8">
+            <div class="well">
+                <h4>Signing in</h4>
+                <p>Start from your application: it sends you here to sign in, and back again.</p>
+                <h4>Signing in as a different test account</h4>
+                <p>
+                    Signing out of an application does not always end your session with this
+                    identity provider, and while that session lasts, the next sign-in skips the
+                    password and returns the same account. To choose another account,
+                    <a href="{{ moduleURL('core/logout/example-userpass') }}">end your session with this identity provider</a>
+                    first, then sign in from your application again.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

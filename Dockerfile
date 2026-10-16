@@ -45,6 +45,10 @@ RUN echo 'ServerName localhost' >> /etc/apache2/apache2.conf
 COPY config/apache/simplesamlphp.conf /etc/apache2/conf-available/simplesamlphp.conf
 RUN a2enconf simplesamlphp
 
+# UBC's ubcEduCwlPuid OID, for SPs that opt in to OID attribute names
+# (saml20-sp-remote.php). It joins SimpleSAMLphp's own maps (name2oid, ...).
+COPY attributemap/ubcoid.php /var/www/simplesamlphp/attributemap/ubcoid.php
+
 # Add startup script
 COPY startup.sh /var/www/startup.sh
 RUN chmod 755 /var/www/startup.sh
