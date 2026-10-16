@@ -61,3 +61,24 @@
 .fake-cwl-make-red {
     color: red !important;
 }
+
+/*
+ * The "not real CWL" band at the top of every themed page (_layout.twig).
+ * White on #b00020 is a contrast ratio of about 7.3:1 (WCAG AAA for normal
+ * text). Theme additions live here; clf.css is vendored UBC CLF 7 and is
+ * kept byte-identical to its source.
+ */
+#not-cwl-band {
+    background-color: #b00020;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 10px 16px;
+    text-align: center;
+    border-bottom: 3px solid #7a0016;
+}
+
+#not-cwl-band strong {
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
