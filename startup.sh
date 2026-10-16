@@ -44,6 +44,11 @@ chmod -R 755 /tmp/simplesamlphp-temp || echo "Warning: Could not set permissions
 
 # Make sure the cert files are readable - ignore errors for mounted volumes
 chmod 644 /var/www/simplesamlphp/cert/server.crt || echo "Warning: Could not set permissions on server.crt"
+# The signing key stays 600, but it must belong to www-data: this script runs as
+# root, and Apache's workers, which sign every assertion, run as www-data. A
+# root-owned 600 key cannot be read by them wherever ownership is enforced (a
+# Linux host, or no bind mount at all), and every sign-in then fails.
+chown www-data:www-data /var/www/simplesamlphp/cert/server.pem || echo "Warning: Could not set ownership on server.pem"
 chmod 600 /var/www/simplesamlphp/cert/server.pem || echo "Warning: Could not set permissions on server.pem"
 echo "[STARTUP] Completed setting directory permissions."
 
