@@ -77,7 +77,37 @@ $config = array(
 	'admin.protectindexpage'      => false,
 	'admin.protectmetadata'       => false,
 
-	'trusted.url.domains'         => array( 'localhost', 'localhost:4000', 'localhost:6122' ),
+	// Release to each Service Provider only the attributes its entry in
+	// saml20-sp-remote.php lists, as real CWL releases only what an app is
+	// registered for. Without this filter every SP receives every attribute
+	// of the person, and an app that works here can fail against CWL.
+	//
+	// AttributeLimit compares the SP's `attributes` list with the attribute
+	// names as they stand at priority 50: the friendly names in
+	// authsources.php. An SP that opts in to UBC's OID names
+	// ($ubc_oid_attribute_names in saml20-sp-remote.php) renames them at
+	// priority 60, AFTER this filter. Run the rename first, or name users'
+	// attributes by OID, and nothing matches the friendly list, so nothing is
+	// released.
+	//
+	// Two traps: an EMPTY `attributes` list means "no limit" (everything is
+	// released), and a MISSING one falls back to the IdP's own list in
+	// saml20-idp-hosted.php.
+	'authproc.idp'                => array(
+		50 => array( 'class' => 'core:AttributeLimit' ),
+	),
+
+	// Where the IdP may send a browser, above all a sign-out's ReturnTo:
+	// localhost and 127.0.0.1, on any port. These are regular expressions
+	// (trusted.url.regex), anchored at both ends by SimpleSAMLphp and matched
+	// against the URL's host and port, so `localhost.example.com` is refused.
+	// Without the regex SimpleSAMLphp matches host:port exactly, so a
+	// `singleLogout?ReturnTo=http://localhost:8050` failed with `500 URL not
+	// allowed` and left the IdP session alive: the next sign-in in that
+	// browser came straight back as the same person, with no password.
+	'trusted.url.domains'         => array( 'localhost(:[0-9]+)?', '127\.0\.0\.1(:[0-9]+)?' ),
+	'trusted.url.regex'           => true,
+
 	'memcache_store.servers'      => array( array( 'hostname' => '127.0.0.1' ) ),
 
 	'module.enable'               => array(
