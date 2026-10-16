@@ -206,3 +206,24 @@ $metadata['http://localhost:3000/saml/metadata'] = array(
 	'saml20.sign.assertion'    => false,
 	'validate.authnrequest'    => false,
 );
+
+// Hatchery (LTIC project management) — passport-ubcshib; ACS is /auth/saml/callback.
+// http://localhost:6130 = local dev and E2E; https://localhost:6143 = prod-like compose behind Caddy.
+// No SingleLogoutService: Hatchery signs people out locally only.
+foreach ( array( 'http://localhost:6130', 'https://localhost:6143' ) as $hatchery_base ) {
+	$metadata[ $hatchery_base ] = array(
+		'AssertionConsumerService' => array(
+			array(
+				'index'    => 0,
+				'Binding'  => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST',
+				'Location' => $hatchery_base . '/auth/saml/callback',
+			),
+		),
+		'NameIDFormat'             => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+		'simplesaml.attributes'    => true,
+		'attributes'               => array( 'ubcEduCwlPuid', 'mail', 'givenName', 'sn' ), // exactly what Hatchery requests; no defaults
+		'saml20.sign.assertion'    => true,
+		'saml20.sign.response'     => true,
+		'validate.authnrequest'    => false,
+	);
+}
